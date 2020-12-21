@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { TokenDecoderService } from '../../_core/services/token-decoder.service';
+import { ActivatedRoute} from '@angular/router';
+import { ProfileUser } from 'src/app/_core/models/ProfileUser';
 import { UserControllerService } from '../../_core/api/user-controller.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { UserControllerService } from '../../_core/api/user-controller.service';
 })
 export class ProfileComponent implements OnInit {
   success:boolean = false;
-  @Input() user: User;
+  @Input() user: ProfileUser;
   constructor(
     private userController: UserControllerService,
     private route: ActivatedRoute
@@ -23,7 +22,7 @@ export class ProfileComponent implements OnInit {
 
   getUserProfile(){
     this.userController.getUserById(this.route.snapshot.paramMap.get('id')).subscribe(
-      (response:User)=>{
+      (response:ProfileUser)=>{
         this.user = response;
         this.success = true;
 
@@ -35,18 +34,4 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-}
-
-export class User{
-  constructor(
-    public id:string,
-    public firstName:string,
-    public lastName:string,
-    public email:string,
-    public gender:string,
-    public age:number,
-    public city:string,
-    public country:string,
-    public imgUrl:string
-  ){}
 }

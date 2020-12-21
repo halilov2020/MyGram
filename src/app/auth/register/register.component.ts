@@ -59,15 +59,18 @@ export class RegisterComponent implements OnInit {
     );
 
     this.accountService.register(registerData).subscribe(
-      (response) => { 
-        this.success = true;
+      (response:any) => { 
+        console.log(typeof(response.status));
+        if(response.status){
+          this.success = true;
+        }
        },
       (error) => { console.log(error) }
       );
   }
 
   gotoLogin(){
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl("/auth/login");
   }
 
   get firstName(): AbstractControl {

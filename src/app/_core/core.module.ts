@@ -10,12 +10,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     CommonModule
   ],
-  providers:[
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    }
-  ]
+  providers:[]
 })
 export class CoreModule { }

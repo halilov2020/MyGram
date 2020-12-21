@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserPost } from '../../feed/feed/feed.component';
+import { UserPost } from 'src/app/_core/models/UserPost';
 
 @Component({
   selector: 'app-user-post',
