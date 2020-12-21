@@ -1,0 +1,12 @@
+<div class="card" *ngIf="success">
+    <div class="card-body">
+      <h3 class="full-name">{{ user.firstName + " " + user.lastName }}</h3>
+      <img [src]="user.imgUrl" *ngIf="user.imgUrl">
+      <div class="email">{{ user.email }}</div>
+      <div class="gender">{{ user.gender }}</div>
+      <div class="age" *ngIf="user.age">{{ user.age }}</div>
+      <div class="city" *ngIf="user.city">{{ user.city }}</div>
+      <div class="country" *ngIf="user.country">{{ user.country }}</div>
+      
+    </div>
+  </div>
