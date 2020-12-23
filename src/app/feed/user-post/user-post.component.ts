@@ -8,6 +8,8 @@ import { UserPost } from 'src/app/_core/models/UserPost';
   styleUrls: ['./user-post.component.css']
 })
 export class UserPostComponent implements OnInit {
+  numLikes:number = 345;
+  isLiked:boolean = false;
 
   @Input() userPost: UserPost;
   constructor(private router: Router) { }
@@ -17,5 +19,15 @@ export class UserPostComponent implements OnInit {
 
   showUserPostDetails(): void {
     this.router.navigate(["user-post-details/"+this.userPost.id]);
+  }
+
+  likePost(){
+    if(this.isLiked){
+      this.isLiked = !this.isLiked;
+      this.numLikes--;
+    } else {
+      this.isLiked = !this.isLiked;
+      this.numLikes++;
+    }
   }
 }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserPostDetailsComponent } from './user-post-details/user-post-details.component';
 
 const routes: Routes = [
+  // https://environment.server/user-post-details/...
   {
     path: ":id",
     component: UserPostDetailsComponent

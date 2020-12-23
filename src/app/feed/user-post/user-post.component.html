@@ -5,5 +5,11 @@
       <img class="user-post-image" *ngIf="userPost.imgUrl" [src]="userPost.imgUrl">
       <p class="card-text">{{userPost.text}}</p>
       <button class="btn btn-dark btn-more" (click)="showUserPostDetails()">Read more</button>
+      <div class="likes">
+        <i class="far fa-heart fa-2x" (click)="likePost()" *ngIf="!isLiked; else notLiked"></i>
+        <ng-template #notLiked><i class="fas fa-heart fa-2x like-true" (click)="likePost()"></i></ng-template>
+        <span class="not-liked-span-num" *ngIf="!isLiked; else notLikedSpan">{{ numLikes?numLikes:null }}</span>
+        <ng-template #notLikedSpan><span class="liked-span-num" >{{ numLikes?numLikes:null }}</span></ng-template>
+      </div>
     </div>
   </div>

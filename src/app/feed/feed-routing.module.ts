@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
+  // https://environment.server/feed/
   {
     path: '',
     component: FeedComponent

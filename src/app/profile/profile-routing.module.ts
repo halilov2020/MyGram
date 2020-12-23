@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  // https://environment.server/profile/...
   {
     path: ':id',
     component: ProfileComponent
