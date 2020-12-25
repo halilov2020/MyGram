@@ -1,4 +1,5 @@
-<div class="card" *ngIf="success">
+<div class="content-layout">
+  <div class="card" *ngIf="success">
     <div class="card-body">
       <h3 class="full-name">{{ user.firstName + " " + user.lastName }}</h3>
       <img [src]="user.imgUrl" *ngIf="user.imgUrl">
@@ -7,6 +8,7 @@
       <div class="age" *ngIf="user.age">{{ user.age }}</div>
       <div class="city" *ngIf="user.city">{{ user.city }}</div>
       <div class="country" *ngIf="user.country">{{ user.country }}</div>
-      
+      <button class="btn btn-success submit" [routerLink]="'/edit'">Edit</button>
     </div>
   </div>
+</div>

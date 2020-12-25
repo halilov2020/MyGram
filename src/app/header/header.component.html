@@ -1,28 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item" [routerLink]="'auth/register'" *ngIf="!token">
-          <a class="nav-link">Register</a>
-        </li>
-        <li class="nav-item" [routerLink]="'auth/login'" *ngIf="!token">
-          <a class="nav-link">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'feed'" *ngIf="token">Feed</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'followers'" *ngIf="token">Followers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="token" (click)="gotoMyProfile()">My Profile</a>
-        </li>
-        <li *ngIf="firstName">
-          <p>Hello, {{ firstName }}</p>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<div class="header-layout">
+  <div class="left">
+    <a class="logo-title" href="feed">MyGram</a>
+  </div>
+  <div class="right">
+    <ul class="list-inline">
+      <li [routerLink]="'auth/register'" *ngIf="!token">
+        Register
+      </li>
+      <li [routerLink]="'auth/login'" *ngIf="!token">
+        Login
+      </li>
+      <li *ngIf="token" (click)="gotoMyProfile()">
+        My Profile
+      </li>
+      <li *ngIf="firstName">
+        <p>Hello, {{ firstName }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

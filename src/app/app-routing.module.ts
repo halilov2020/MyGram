@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuardService } from './_core/guards/auth-guard.service';
+import { AuthGuard } from './_core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,22 +9,27 @@ const routes: Routes = [
   },
   {
     path: "feed",
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuard],
     loadChildren: () => import("./feed/feed.module").then(m => m.FeedModule)
   },
   {
     path: "profile",
-    canActivate:[AuthGuardService],
+    canActivate:[AuthGuard],
     loadChildren: () => import("./profile/profile.module").then(m => m.ProfileModule)
   },
   {
+    path: "edit",
+    canDeactivate: [AuthGuard],
+    loadChildren: () => import("./profile-edit/profile-edit.module").then(m => m.ProfileEditModule)
+  },
+  {
     path: "user-post-details",
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuard],
     loadChildren: () => import("./user-post-details/user-post-details.module").then(m => m.UserPostDetailsModule)
   },
   {
     path:"followers",
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuard],
     loadChildren: () => import("./followers/followers.module").then(m => m.FollowersModule)
   },
   {

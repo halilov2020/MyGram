@@ -1,0 +1,18 @@
+.left{
+    margin-left: 50px;
+}
+.right{
+    display: block;
+    width: auto;
+}
+ul li{
+    display: inline;
+    margin-right: 20px;
+}
+.logo-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+.list-inline {
+    margin: 0px;
+}

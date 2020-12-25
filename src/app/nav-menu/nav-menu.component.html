@@ -1,0 +1,24 @@
+<div class="menu">
+  <ol class="menu-ol" *ngIf="token">
+    <li class="menu-item" (click)="gotoMyProfile()">
+        <i class="fas fa-user fa-2x"></i>
+        <span class="menu-item-text">My Profile</span>
+    </li>
+    <li class="menu-item" [routerLink]="'feed'">
+        <i class="fas fa-newspaper fa-2x"></i>
+        <span class="menu-item-text">Feed</span>
+    </li>
+    <li class="menu-item" [routerLink]="'followers'" >
+        <i class="fas fa-users fa-2x"></i>
+        <span class="menu-item-text">Followers</span>
+    </li>
+    <li class="menu-item">
+        <i class="fas fa-users fa-2x"></i>
+        <span class="menu-item-text">Followings</span>
+    </li>
+    <li class="menu-item">
+        <i class="fas fa-sliders-h fa-2x"></i>
+        <span class="menu-item-text">Settings</span>
+    </li>
+</ol>
+</div>
