@@ -5,7 +5,7 @@ export class ProfileUser{
       public lastName:string,
       public email:string,
       public gender:string,
-      public age:number,
+      public dateOfBirth:string,
       public city:string,
       public country:string,
       public imgUrl:string

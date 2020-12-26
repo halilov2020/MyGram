@@ -25,11 +25,9 @@ export class ProfileComponent implements OnInit {
       (response:ProfileUser)=>{
         this.user = response;
         this.success = true;
-
         console.log(this.user)
       },
       (error)=>{
-        console.log(this.route.snapshot.paramMap.get('id'))
         console.log(error)
       }
     );

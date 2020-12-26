@@ -2,22 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProfileEditRoutingModule } from './profile-edit-routing.module';
-import { EditComponent } from './edit/edit.component';
-import { AuthGuard } from '../_core/guards/auth.guard';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    EditComponent
-  ],
+  declarations: [ProfileEditComponent],
   imports: [
     CommonModule,
     ProfileEditRoutingModule,
     ReactiveFormsModule
-  ],
-  providers: [
-    AuthGuard
   ]
 })
 export class ProfileEditModule { }

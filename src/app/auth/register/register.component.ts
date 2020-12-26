@@ -60,12 +60,13 @@ export class RegisterComponent implements OnInit {
 
     this.accountService.register(registerData).subscribe(
       (response:any) => { 
-        console.log(typeof(response.status));
         if(response.status){
           this.success = true;
         }
        },
-      (error) => { console.log(error) }
+      (error) => {
+        console.log(error)
+      }
       );
   }
 

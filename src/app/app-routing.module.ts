@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: "edit",
-    canDeactivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import("./profile-edit/profile-edit.module").then(m => m.ProfileEditModule)
   },
   {

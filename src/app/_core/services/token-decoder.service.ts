@@ -11,6 +11,7 @@ export class TokenDecoderService {
 
   constructor() {
     this.decodedToken = this.getDecodedAccessToken(localStorage.getItem("token"));
+    this.getTokenData();
   }
 
   getDecodedAccessToken(token:string){
@@ -22,7 +23,7 @@ export class TokenDecoderService {
     }
   }
 
-  printTokenData(){
+  getTokenData(){
     this.userId = this.decodedToken.id;
   }
 

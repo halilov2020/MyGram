@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = window.localStorage.getItem("token");
-    this.tokenDecoder.printTokenData();
   }
   gotoMyProfile(){
     this.router.navigate(["profile/" + this.tokenDecoder.id])

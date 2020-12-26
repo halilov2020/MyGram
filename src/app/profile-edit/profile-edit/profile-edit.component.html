@@ -1,7 +1,8 @@
 <div class="content-layout">
     <div class="profile-edit-page">
-      <form class="profile-edit-form" [formGroup]="editForm">
+      <form [formGroup]="editForm" class="profile-edit-form">
         <div class="profile-edit-page-title">Edit page</div>
+        
         <label class="edit-label">First name:</label>
         <input type="text" class="form-control" formControlName="firstName">
     
@@ -30,7 +31,7 @@
         <input type="file" class="form-control" id="formFile"> -->
     </form>
       <div class="submit-div">
-        <button class="btn btn-success submit">Submit</button>
+        <button class="btn btn-success submit" (click)="submit()">Submit</button>
       </div>
     </div>
 </div>
