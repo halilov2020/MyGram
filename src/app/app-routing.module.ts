@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NewPostModule } from './new-post/new-post.module';
 import { AuthGuard } from './_core/guards/auth.guard';
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
     path:"followers",
     canActivate: [AuthGuard],
     loadChildren: () => import("./followers/followers.module").then(m => m.FollowersModule)
+  },
+  {
+    path: "new-post",
+    canActivate: [AuthGuard],
+    loadChildren: () => import("./new-post/new-post.module").then(m => m.NewPostModule)
   },
   {
     path:"**",
