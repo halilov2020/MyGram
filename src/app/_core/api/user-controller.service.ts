@@ -17,8 +17,7 @@ export class UserControllerService {
     return this.http.get(this.baseUrl + this.resourceUrl + "/getbyid", {params: params});
   }
 
-  updateProfile(id){
-    let params = new HttpParams().set("Id", id);
-    return this.http.post(this.baseUrl + this.resourceUrl + "/update", {params: params});
+  updateProfile(body){
+    return this.http.post(this.baseUrl + this.resourceUrl + "/update", body);
   }
 }

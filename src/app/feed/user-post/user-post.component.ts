@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserPost } from 'src/app/_core/models/UserPost';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-post',
@@ -29,5 +30,9 @@ export class UserPostComponent implements OnInit {
       this.isLiked = !this.isLiked;
       this.numLikes++;
     }
+  }
+  
+  getImgUrl(){
+    return environment.server + "/"+this.userPost.imgUrl;
   }
 }

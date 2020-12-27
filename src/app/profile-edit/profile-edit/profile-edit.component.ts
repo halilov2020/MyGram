@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -5,6 +6,7 @@ import { UserControllerService } from 'src/app/_core/api/user-controller.service
 import { EditData } from 'src/app/_core/models/EditData';
 import { ProfileUser } from 'src/app/_core/models/ProfileUser';
 import { TokenDecoderService } from 'src/app/_core/services/token-decoder.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-edit',
@@ -12,9 +14,6 @@ import { TokenDecoderService } from 'src/app/_core/services/token-decoder.servic
   styleUrls: ['./profile-edit.component.css']
 })
 export class ProfileEditComponent implements OnInit {
-  submitPressed: boolean = false;
-  success: boolean = false;
-  user:ProfileUser;
   editForm:FormGroup = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
@@ -24,11 +23,18 @@ export class ProfileEditComponent implements OnInit {
     city: new FormControl(),
     country: new FormControl()
   }); 
+  submitPressed: boolean = false;
+  success: boolean = false;
+  user:ProfileUser;
+  selectedFile: File = null;
+  fileUploaded: boolean = false;
+  imgUrl:string;
 
   constructor(
     private formBuilder:FormBuilder,
     private userController: UserControllerService,
-    private tokenDecoder: TokenDecoderService
+    private tokenDecoder: TokenDecoderService,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -72,9 +78,10 @@ export class ProfileEditComponent implements OnInit {
       this.editForm.value.gender,
       this.editForm.value.dateOfBirth,
       this.editForm.value.city,
-      this.editForm.value.country
+      this.editForm.value.country,
+      this.imgUrl
     );
-      this.userController.updateProfile(this.tokenDecoder.id).subscribe(
+      this.userController.updateProfile(editData).subscribe(
         (response:any) => {
           if(response.status){
             this.success = true;
@@ -85,6 +92,24 @@ export class ProfileEditComponent implements OnInit {
         }
       );
   }
+
+  onChanged(event){
+    this.selectedFile = <File>event.target.files[0];
+    const formData:FormData = new FormData();
+    formData.append('file', this.selectedFile, Date.now().toString()+"."+this.getFileType(this.selectedFile.name));
+    this.http.post(environment.server + "/user/UploadAvatar", formData).subscribe(
+      (response:any)=>{
+        this.fileUploaded = true;
+        this.imgUrl = response.dbPath;
+        console.log(this.imgUrl)
+      }
+    );
+  }
+  getFileType(name: string) {
+      const array = name.split(".");
+      return array[array.length-1];
+  }
+
   get firstName():AbstractControl {
     return this.editForm.get('firstName');
   }

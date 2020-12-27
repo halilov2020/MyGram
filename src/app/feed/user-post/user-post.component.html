@@ -2,7 +2,7 @@
     <div class="card-body">
       <h5 class="card-title">{{userPost.title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">By: {{userPost.author}}</h6>
-      <img class="user-post-image" *ngIf="userPost.imgUrl" [src]="userPost.imgUrl">
+      <img class="user-post-image" *ngIf="userPost.imgUrl" [src]="getImgUrl()">
       <p class="card-text">{{userPost.text}}</p>
       <button class="btn btn-dark btn-more" (click)="showUserPostDetails()">Read more</button>
       <div class="likes">

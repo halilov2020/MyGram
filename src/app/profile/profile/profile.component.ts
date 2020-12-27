@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { ProfileUser } from 'src/app/_core/models/ProfileUser';
+import { environment } from 'src/environments/environment';
 import { UserControllerService } from '../../_core/api/user-controller.service';
 
 @Component({
@@ -31,5 +32,9 @@ export class ProfileComponent implements OnInit {
         console.log(error)
       }
     );
+  }
+  
+  getImgUrl(){
+    return environment.server + "/"+this.user.imgUrl;
   }
 }

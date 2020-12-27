@@ -26,9 +26,11 @@
     
         <label class="edit-label">Country:</label>
         <input type="text" class="form-control" formControlName="country">
-<!--     
-        <label class="edit-label">Avatar:</label>
-        <input type="file" class="form-control" id="formFile"> -->
+
+        
+        <label class="edit-label" >Image:</label>
+        <input type="file" class="form-control" accept="image/png, image/jpeg" (change)="onChanged($event)">
+        
     </form>
       <div class="submit-div">
         <button class="btn btn-success submit" (click)="submit()">Submit</button>

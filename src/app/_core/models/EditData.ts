@@ -7,6 +7,7 @@ export class EditData {
       public dateOfBirth: string,
       public city:string,
       public country:string,
+      public imgUrl:string
       ){}
   }
 

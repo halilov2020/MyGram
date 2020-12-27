@@ -10,8 +10,10 @@ export class TokenDecoderService {
   userId:string;
 
   constructor() {
-    this.decodedToken = this.getDecodedAccessToken(localStorage.getItem("token"));
-    this.getTokenData();
+    if(localStorage.getItem("token")){
+      this.decodedToken = this.getDecodedAccessToken(localStorage.getItem("token"));
+      this.getTokenData();
+    }
   }
 
   getDecodedAccessToken(token:string){
