@@ -28,11 +28,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import("./user-post-details/user-post-details.module").then(m => m.UserPostDetailsModule)
   },
-  {
-    path:"followers",
-    canActivate: [AuthGuard],
-    loadChildren: () => import("./followers/followers.module").then(m => m.FollowersModule)
-  },
+  // {
+  //   path:"followers",
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import("./follows/followers.module").then(m => m.FollowersModule)
+  // },
   {
     path: "new-post",
     canActivate: [AuthGuard],

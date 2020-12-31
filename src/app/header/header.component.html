@@ -10,8 +10,8 @@
       <li [routerLink]="'auth/login'" *ngIf="!token">
         Login
       </li>
-      <li *ngIf="token" (click)="gotoMyProfile()">
-        My Profile
+      <li *ngIf="token" (click)="profileExit()">
+        Exit
       </li>
       <li *ngIf="firstName">
         <p>Hello, {{ firstName }}</p>

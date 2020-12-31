@@ -7,6 +7,8 @@
     <div class="age" *ngIf="user.age">{{ user.age }}</div>
     <div class="city" *ngIf="user.city">{{ user.city }}</div>
     <div class="country" *ngIf="user.country">{{ user.country }}</div>
-    <button class="btn btn-success submit" [routerLink]="'/edit'">Edit</button>
+    <button class="btn btn-success submit" [routerLink]="'/edit'" *ngIf="isMyAccount">Edit</button>
+    <button class="btn btn-success" *ngIf="!isMyAccount && !isUserSubscribed" (click)="follow()">Follow</button>
+    <button class="btn btn-success" *ngIf="!isMyAccount && isUserSubscribed" (click)="unfollow()">Unfollow</button>
   </div>
 </div>

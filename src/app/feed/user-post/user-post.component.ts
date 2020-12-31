@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostsService } from 'src/app/_core/api/posts.service';
 import { UserPost } from 'src/app/_core/models/UserPost';
 import { environment } from 'src/environments/environment';
 
@@ -9,13 +11,20 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./user-post.component.css']
 })
 export class UserPostComponent implements OnInit {
-  numLikes:number = 345;
-  isLiked:boolean = false;
+  isLiked:boolean;
 
   @Input() userPost: UserPost;
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private postsService: PostsService
+    ) { }
 
   ngOnInit(): void {
+    this.postsService.isLiked(this.userPost.id).subscribe(
+      (response:any) => {
+        this.isLiked = response.isLiked;
+      }
+      );
   }
 
   showUserPostDetails(): void {
@@ -25,10 +34,14 @@ export class UserPostComponent implements OnInit {
   likePost(){
     if(this.isLiked){
       this.isLiked = !this.isLiked;
-      this.numLikes--;
+      this.postsService.numLikes(this.userPost.id).subscribe(
+        (response:any)=>{
+          console.log(response);
+        }
+      )
     } else {
       this.isLiked = !this.isLiked;
-      this.numLikes++;
+      this.userPost.likes++;
     }
   }
   
