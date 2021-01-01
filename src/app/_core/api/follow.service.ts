@@ -26,4 +26,12 @@ export class FollowService {
     const params:HttpParams = new HttpParams().set("userToFollowId", userToFollowId);
     return this.http.get(this.baseUrl + this.resourceUrl + "/isFollowed", {params: params});
   }
+  getFollowers(userId:string){
+    const params:HttpParams = new HttpParams().set("userId", userId);
+    return this.http.get(this.baseUrl + this.resourceUrl + "/getFollowers", {params: params});
+  }
+  getFollowings(userId:string){
+    const params:HttpParams = new HttpParams().set("userId", userId);
+    return this.http.get(this.baseUrl + this.resourceUrl + "/getFollowings", {params: params});
+  }
 }
