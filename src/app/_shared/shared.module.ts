@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TruncatePipe } from './truncate.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
 @NgModule({
-  declarations: [TruncatePipe],
+  declarations: [TruncatePipe,LoaderComponent],
   imports: [
     CommonModule
   ]

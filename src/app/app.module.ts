@@ -8,27 +8,38 @@ import { HeaderComponent } from './header/header.component';
 import { TokenInterceptorService } from './_core/interceptors/token-interceptor.service';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AuthGuard } from './_core/guards/auth.guard';
-
+import { LoaderComponent } from './_shared/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderService } from './_core/services/loader.service';
+import { LoaderInterceptor } from './_core/interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavMenuComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [
-    {
+  {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
   },
-  AuthGuard
+  AuthGuard,
+  LoaderService,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptor,
+    multi: true
+  }
 ],
   bootstrap: [AppComponent]
 })

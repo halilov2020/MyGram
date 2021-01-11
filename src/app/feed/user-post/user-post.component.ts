@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/_core/api/posts.service';
 import { UserPost } from 'src/app/_core/models/UserPost';
-import { TruncatePipe } from 'src/app/_shared/truncate.pipe';
 import { environment } from 'src/environments/environment';
 
 @Component({

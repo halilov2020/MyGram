@@ -2,7 +2,7 @@
 #28A745 - green success button
 #218838 - green success button hover
 */
-
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 .header{
     background-color: lightgreen;
 }

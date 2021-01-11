@@ -5,14 +5,15 @@ import { FeedRoutingModule } from './feed-routing.module';
 import { FeedComponent } from './feed/feed.component';
 import { UserPostComponent } from './user-post/user-post.component';
 import { RouterModule } from '@angular/router';
-import { TruncatePipe } from '../_shared/truncate.pipe';
+import { TruncatePipe } from '../_shared/pipes/truncate.pipe';
+import { LoaderComponent } from '../_shared/loader/loader.component';
 
 
 @NgModule({
   declarations: [
     FeedComponent,
     UserPostComponent,
-    TruncatePipe
+    TruncatePipe,
   ],
   imports: [
     CommonModule,

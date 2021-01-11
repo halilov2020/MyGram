@@ -12,7 +12,8 @@ import { PostsService } from '../../_core/api/posts.service';
 })
 export class FeedComponent implements OnInit {
   userPosts: UserPost[];
-  filters:UserPostFilters = new UserPostFilters(0, 3, SortType.NEWEST_DESCENDING);
+  sortType: SortType = SortType.POPULAR_DESCENDING;
+  filters:UserPostFilters = new UserPostFilters(0, 3, this.sortType);
   constructor(
     private postsService: PostsService
   ) { }
@@ -22,6 +23,7 @@ export class FeedComponent implements OnInit {
   }
 
   getUserPosts(){
+    this.filters.sortType = this.sortType;
     this.postsService.getPosts(this.filters).subscribe(
       (response:UserPost[]) => {
         if(!this.userPosts){
@@ -39,5 +41,55 @@ export class FeedComponent implements OnInit {
   loadMore(){
     this.filters.page++;
     this.getUserPosts();
+  }
+
+  sortNewest(){
+    switch(this.sortType){
+      case SortType.POPULAR_ASCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.NEWEST_ASCENDING;
+        this.getUserPosts();
+        break;
+      case SortType.POPULAR_DESCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.NEWEST_ASCENDING;
+        this.getUserPosts();
+        break;
+      case SortType.NEWEST_ASCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.NEWEST_DESCENDING;
+        this.getUserPosts();
+        break;
+      case SortType.NEWEST_DESCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.NEWEST_ASCENDING;
+        this.getUserPosts();
+        break;
+    }
+  }
+
+  sortPopular(){
+    switch(this.sortType){
+      case SortType.NEWEST_ASCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.POPULAR_ASCENDING;
+        this.getUserPosts();
+        break;
+      case SortType.NEWEST_DESCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.POPULAR_ASCENDING;
+        this.getUserPosts();
+        break;
+      case SortType.POPULAR_ASCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.POPULAR_DESCENDING;
+        this.getUserPosts();
+        break;
+      case SortType.POPULAR_DESCENDING:
+        this.userPosts = null;
+        this.sortType = SortType.POPULAR_ASCENDING;
+        this.getUserPosts();
+        break;
+    }
   }
 }
