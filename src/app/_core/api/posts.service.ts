@@ -29,10 +29,4 @@ export class PostsService {
       .set('postId', postId.toString()); 
     return this.http.get(this.baseUrl + this.resourceUrl + "/IsLiked", {params: params});
   }
-  
-  numLikes(postId:number){
-  const params: HttpParams = new HttpParams()
-    .set('postId', postId.toString()); 
-  return this.http.get(this.baseUrl + this.resourceUrl + "/NumLikes", {params: params});
-  }
 }

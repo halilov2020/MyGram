@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/_core/api/posts.service';
@@ -32,17 +31,12 @@ export class UserPostComponent implements OnInit {
   }
 
   likePost(){
-    if(this.isLiked){
-      this.isLiked = !this.isLiked;
-      this.postsService.numLikes(this.userPost.id).subscribe(
-        (response:any)=>{
-          console.log(response);
-        }
-      )
-    } else {
-      this.isLiked = !this.isLiked;
-      this.userPost.likes++;
-    }
+    this.postsService.likePost(this.userPost.id).subscribe(
+      (response:any)=>{
+        this.userPost.likes = response.numLikes;
+        this.isLiked = !this.isLiked;
+      }
+    )
   }
   
   getImgUrl(){
