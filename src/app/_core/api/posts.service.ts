@@ -19,6 +19,11 @@ export class PostsService {
       .set('sortType', filters.sortType.toString());
     return this.http.get(this.baseUrl + this.resourceUrl + "/getall", {params: params});
   }
+  getPostById(postId:number){
+    const params: HttpParams = new HttpParams()
+      .set('postId', postId.toString());
+    return this.http.get(this.baseUrl + this.resourceUrl + "/getPostById", {params: params})
+  }
   likePost(postId:number){
     const params: HttpParams = new HttpParams()
       .set('postId', postId.toString()); 

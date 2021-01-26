@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/_core/api/posts.service';
+import { CommentFilters } from 'src/app/_core/models/CommentFilters';
 import { UserPost } from 'src/app/_core/models/UserPost';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserPostComponent implements OnInit {
   isLiked:boolean;
+  
 
   @Input() userPost: UserPost;
   constructor(
@@ -22,8 +24,7 @@ export class UserPostComponent implements OnInit {
     this.postsService.isLiked(this.userPost.id).subscribe(
       (response:any) => {
         this.isLiked = response.isLiked;
-      }
-      );
+      });
   }
 
   showUserPostDetails(): void {

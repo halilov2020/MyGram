@@ -20,4 +20,7 @@ export class UserControllerService {
   updateProfile(body){
     return this.http.post(this.baseUrl + this.resourceUrl + "/update", body);
   }
+  getUserAvatar(){
+    return this.http.get(this.baseUrl + this.resourceUrl + "/getUserAvatar");
+  }
 }
