@@ -1,6 +1,10 @@
 .left{
     margin-left: 50px;
 }
+.left a {
+    text-decoration: none;
+    color: grey;
+}
 .right{
     display: block;
     width: auto;

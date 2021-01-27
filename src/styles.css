@@ -19,7 +19,8 @@
     display: flex;
     justify-content: center;
     background-color: #EDEEF0;
-    height: 94vh;
+    min-height: 93vh;
+    height:auto;
 }
 .page-layout {
     display: flex;
