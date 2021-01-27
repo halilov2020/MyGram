@@ -9,6 +9,6 @@
     <div class="country" *ngIf="user.country">{{ user.country }}</div>
     <button class="btn btn-success submit" [routerLink]="'/edit'" *ngIf="isMyAccount">Edit</button>
     <button class="btn btn-success" *ngIf="!isMyAccount && !isUserSubscribed" (click)="follow()">Follow</button>
-    <button class="btn btn-success" *ngIf="!isMyAccount && isUserSubscribed" (click)="unfollow()">Unfollow</button>
+    <button class="btn btn-danger" *ngIf="!isMyAccount && isUserSubscribed" (click)="unfollow()">Unfollow</button>
   </div>
 </div>

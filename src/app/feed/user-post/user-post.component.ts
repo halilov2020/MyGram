@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/_core/api/posts.service';
-import { CommentFilters } from 'src/app/_core/models/CommentFilters';
 import { UserPost } from 'src/app/_core/models/UserPost';
 import { environment } from 'src/environments/environment';
 

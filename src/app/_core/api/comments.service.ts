@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CommentData } from '../models/CommentData';
-import { CommentFilters } from '../models/CommentFilters';
+import { Filters } from '../models/Filters';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class CommentsService {
   addComment(comment:CommentData) {
     return this.http.post(this.baseUrl + this.resourceUrl + "/addComment", comment);
   }
-  getComments(filters:CommentFilters, postId:string){
+  getComments(filters:Filters, postId:string){
     const params:HttpParams = new HttpParams()
       .set("postId", postId)
       .set("pageNumber", filters.page.toString())

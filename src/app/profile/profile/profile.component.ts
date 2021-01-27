@@ -23,10 +23,10 @@ export class ProfileComponent implements OnInit {
     private followService:FollowService
   ) { }
 
-  async ngOnInit(){
-    await this.getUserProfile();
+  ngOnInit(){
+    this.getUserProfile();
     this.isMyAccount = this.isMyProfile();
-    await this.isSubscribed();
+    this.isSubscribed();
   }
   isMyProfile():boolean {
     if(this.tokenDecoder.id == this.route.snapshot.paramMap.get('id')){
@@ -35,8 +35,8 @@ export class ProfileComponent implements OnInit {
     return false;
   }
 
-  async getUserProfile(){
-    await this.userController.getUserById(this.route.snapshot.paramMap.get('id')).subscribe(
+  getUserProfile(){
+    this.userController.getUserById(this.route.snapshot.paramMap.get('id')).subscribe(
       (response:ProfileUser)=>{
         this.user = response;
         this.success = true;
@@ -47,8 +47,8 @@ export class ProfileComponent implements OnInit {
     );
   }
   
-  async isSubscribed(){
-    await this.followService.isFollowed(this.route.snapshot.paramMap.get('id')).subscribe(
+  isSubscribed(){
+    this.followService.isFollowed(this.route.snapshot.paramMap.get('id')).subscribe(
       (response:any) => {
         this.isUserSubscribed = response.isFollowed
       }

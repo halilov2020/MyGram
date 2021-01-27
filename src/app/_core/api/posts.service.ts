@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { UserPostFilters } from '../models/UserPostFilters';
+import { Filters } from '../models/Filters';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(filters:UserPostFilters){
+  getPosts(filters:Filters){
     const params: HttpParams = new HttpParams()
       .set('pageSize', filters.size.toString())
       .set('pageNumber', filters.page.toString())

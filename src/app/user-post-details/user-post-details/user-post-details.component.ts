@@ -4,7 +4,7 @@ import { CommentsService } from 'src/app/_core/api/comments.service';
 import { PostsService } from 'src/app/_core/api/posts.service';
 import { SortType } from 'src/app/_core/constants/sort-type.enum';
 import { CommentData } from 'src/app/_core/models/CommentData';
-import { CommentFilters } from 'src/app/_core/models/CommentFilters';
+import { Filters } from 'src/app/_core/models/Filters';
 import { CommentPost } from 'src/app/_core/models/CommentPost';
 import { UserPost } from 'src/app/_core/models/UserPost';
 import { environment } from 'src/environments/environment';
@@ -19,7 +19,7 @@ export class UserPostDetailsComponent implements OnInit {
   loading: boolean = true;
   userComments: CommentPost[];
   sortType: SortType = SortType.POPULAR_DESCENDING;
-  commentFilters:CommentFilters = new CommentFilters(0, 10, this.sortType);
+  Filters:Filters = new Filters(0, 10, this.sortType);
   
   @Input() userPost:UserPost;
   constructor(
@@ -39,8 +39,8 @@ export class UserPostDetailsComponent implements OnInit {
     );
   }
   getComments(){
-    this.commentFilters.sortType = this.sortType;
-    this.commentsService.getComments(this.commentFilters, this.userPost.id.toString()).subscribe(
+    this.Filters.sortType = this.sortType;
+    this.commentsService.getComments(this.Filters, this.userPost.id.toString()).subscribe(
       (response:CommentPost[]) => {
         if(!this.userComments){
           this.userComments = response;

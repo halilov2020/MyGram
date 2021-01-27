@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SortType } from 'src/app/_core/constants/sort-type.enum';
 import { UserPost } from 'src/app/_core/models/UserPost';
-import { UserPostFilters } from 'src/app/_core/models/UserPostFilters';
+import { Filters } from 'src/app/_core/models/Filters';
 import { PostsService } from '../../_core/api/posts.service';
 
 
@@ -13,7 +13,7 @@ import { PostsService } from '../../_core/api/posts.service';
 export class FeedComponent implements OnInit {
   userPosts: UserPost[];
   sortType: SortType = SortType.POPULAR_DESCENDING;
-  filters:UserPostFilters = new UserPostFilters(0, 3, this.sortType);
+  filters:Filters = new Filters(0, 3, this.sortType);
   constructor(
     private postsService: PostsService
   ) { }

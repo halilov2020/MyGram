@@ -8,6 +8,8 @@ export class ProfileUser{
       public dateOfBirth:string,
       public city:string,
       public country:string,
-      public imgUrl:string
+      public imgUrl:string,
+      public followed:number,
+      public follows:number
     ){}
 }

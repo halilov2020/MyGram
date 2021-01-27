@@ -1,6 +1,6 @@
 import { SortType } from "../constants/sort-type.enum";
 
-export class CommentFilters{
+export class Filters{
     constructor(
         public page:number,
         public size:number,
