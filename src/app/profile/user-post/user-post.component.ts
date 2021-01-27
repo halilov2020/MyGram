@@ -5,7 +5,7 @@ import { UserPost } from 'src/app/_core/models/UserPost';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-user-post',
+  selector: 'app-profile-user-post',
   templateUrl: './user-post.component.html',
   styleUrls: ['./user-post.component.css']
 })

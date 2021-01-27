@@ -2,3 +2,13 @@
     height: 300px;
     width: 300px;
 }
+.type{
+    background-color: grey;
+    padding:10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.sort-types {
+    display: flex;
+    margin: 15px 0;
+}

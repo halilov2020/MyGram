@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
       <h3 class="full-name">{{ user.firstName + " " + user.lastName }}</h3>
-      <img class="profile-avatar"[src]="getImgUrl()" *ngIf="user.imgUrl">
+      <img class="profile-avatar"[src]="getImgUrl()">
       <div class="email">Email: {{ user.email }}</div>
       <div class="gender">Gender: {{ user.gender }}</div>
       <div class="city" *ngIf="user.city">City: {{ user.city }}</div>

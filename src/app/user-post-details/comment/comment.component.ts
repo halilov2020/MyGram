@@ -36,18 +36,6 @@ export class CommentComponent implements OnInit {
     if(this.comment.imgUrl != null){
       return environment.server + "/"+this.comment.imgUrl;
     }
-    return "https://pbs.twimg.com/profile_images/740272510420258817/sd2e6kJy_400x400.jpg"
+    return "https://pbs.twimg.com/profile_images/740272510420258817/sd2e6kJy_400x400.jpg";
   }
-  // this.userService.getUserAvatar().subscribe(
-  //   (response:any) => {
-  //     this.imgUrl = response;
-  //   });
-  // }
-  // getImgUrl(){
-  //   if(this.imgUrl == null){
-  //     return "https://pbs.twimg.com/profile_images/740272510420258817/sd2e6kJy_400x400.jpg";
-  //   }else{
-  //     return this.imgUrl;
-  //   }
-  // }
 }

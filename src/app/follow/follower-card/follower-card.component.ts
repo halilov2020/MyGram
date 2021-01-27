@@ -22,7 +22,7 @@ export class FollowerCardComponent implements OnInit {
     if(this.follower.imgUrl != null){
       return environment.server + "/" + this.follower.imgUrl;
     }
-    return null;
+    return "https://pbs.twimg.com/profile_images/740272510420258817/sd2e6kJy_400x400.jpg";
   }
   gotoProfile(){
     this.router.navigateByUrl("/profile/" + this.follower.id);

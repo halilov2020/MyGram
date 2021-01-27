@@ -29,7 +29,7 @@ export class UserCardComponent implements OnInit {
     if(this.user.imgUrl != null){
       return environment.server + "/" + this.user.imgUrl;
     }
-    return null;
+    return "https://pbs.twimg.com/profile_images/740272510420258817/sd2e6kJy_400x400.jpg";
   }
   isMyProfile():boolean {
     if(this.tokenDecoder.id == this.user.id){

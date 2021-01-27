@@ -19,6 +19,14 @@ export class PostsService {
       .set('sortType', filters.sortType.toString());
     return this.http.get(this.baseUrl + this.resourceUrl + "/getall", {params: params});
   }
+  getMyPosts(filters:Filters, id:string){
+    const params: HttpParams = new HttpParams()
+    .set('pageSize', filters.size.toString())
+    .set('pageNumber', filters.page.toString())
+    .set('sortType', filters.sortType.toString())
+    .set('userId', id);
+  return this.http.get(this.baseUrl + this.resourceUrl + "/getMyPosts", {params: params});
+  }
   getPostById(postId:number){
     const params: HttpParams = new HttpParams()
       .set('postId', postId.toString());
