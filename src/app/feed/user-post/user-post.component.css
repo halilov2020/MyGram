@@ -3,8 +3,12 @@
     width: 200px;
 }
 .card {
-    width: 350px;
+    width: 400px;
     margin: 15px;
+}
+.card-body {
+    display:flex;
+    justify-content: center;
 }
 .like-true {
     color: red;

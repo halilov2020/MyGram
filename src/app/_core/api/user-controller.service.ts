@@ -23,4 +23,7 @@ export class UserControllerService {
   getUserAvatar(){
     return this.http.get(this.baseUrl + this.resourceUrl + "/getUserAvatar");
   }
+  deleteAccount(){
+    return this.http.delete(this.baseUrl + this.resourceUrl + "/deleteAccount");
+  }
 }

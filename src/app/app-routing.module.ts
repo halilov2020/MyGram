@@ -39,9 +39,15 @@ const routes: Routes = [
     loadChildren: () => import("./new-post/new-post.module").then(m => m.NewPostModule)
   },
   {
+    path:"settings",
+    canActivate: [AuthGuard],
+    loadChildren: () => import("./settings/settings.module").then(m => m.SettingsModule)
+  },
+  {
     path:"**",
     loadChildren: () => import("./page-not-found/page-not-found.module").then(m => m.PageNotFoundModule)
-  }
+  },
+
 ];
 
 @NgModule({
